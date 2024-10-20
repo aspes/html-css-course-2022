@@ -1,0 +1,46 @@
+<style>
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.box{
+  width: 100px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.box-1 {
+  aspect-ratio: 16/9;
+}
+
+.box-2 {
+  aspect-ratio: 3/4;
+}
+
+.box-3 {
+  aspect-ratio: 1/1;
+}
+
+.box-4 {
+  aspect-ratio: 1/2;
+}
+
+body {
+  margin: auto;
+  width: 50%;
+  border: 10px solid red;
+  aspect-ratio: 2/3;
+}
+</style>
+
+<div class="container">
+  <div class="box box-1">16/9</div>
+  <div class="box box-2">3/4</div>
+  <div class="box box-3">1/1</div>
+  <div class="box box-4">1/2</div>
+</div>
