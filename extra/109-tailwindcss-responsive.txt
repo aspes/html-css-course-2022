@@ -1,1 +1,28 @@
 
+sm이상은 그린, 기본적으로는(sm이하는) 레드
+<div class="border-8 bg-red-50 sm:bg-green-50 p-5">
+  <div class="item item-1">Item 1</div>
+  <div class="item item-2">Item 2</div>
+  <div class="item item-3">Item 3</div>
+</div>
+
+역: 최대sm이하는 그린, 기본적으로(sm이상은) 레드
+<div class="border-8 bg-red-50 max-sm:bg-green-50 p-5">
+  <div class="item item-1">Item 1</div>
+  <div class="item item-2">Item 2</div>
+  <div class="item item-3">Item 3</div>
+</div>
+
+sm이하에서는 item1 사라짐
+<div class="border-8 bg-red-50 max-sm:bg-green-50 p-5">
+  <div class="max-sm:hidden">Item 1</div>
+  <div class="item item-2">Item 2</div>
+  <div class="item item-3">Item 3</div>
+</div>
+
+sm에서 md사이는 그린, 그외 범위는 레드
+<div class="border-8 bg-red-50 sm:max-md:bg-green-50 p-5">
+  <div class="item item-1">Item 1</div>
+  <div class="item item-2">Item 2</div>
+  <div class="item item-3">Item 3</div>
+</div>
