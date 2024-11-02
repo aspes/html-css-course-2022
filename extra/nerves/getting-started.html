@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="nerves v1.11.2">
+
+
+    <title>Getting Started — nerves v1.11.2</title>
+    <link rel="stylesheet" href="https://hexdocs.pm/nerves/dist/html-elixir-F2VRIOKR.css" />
+
+
+    <script src="https://hexdocs.pm/nerves/dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="https://hexdocs.pm/nerves/dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="https://hexdocs.pm/nerves/dist/sidebar_items-E588B864.js"></script>
+    <script src="https://hexdocs.pm/nerves/docs_config.js"></script>
+    <script async src="https://hexdocs.pm/nerves/dist/html-YIPIRHGU.js"></script>
+
+  <script async defer data-domain="hexdocs.pm" src="https://stats.hexdocs.pm/js/index.js"></script></head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="getting-started.html" class="sidebar-projectImage">
+          <img src="https://hexdocs.pm/nerves/assets/logo.png" alt="nerves" />
+        </a>
+
+      <div>
+        <a href="https://hexdocs.pm/nerves/getting-started.html" class="sidebar-projectName" translate="no">
+nerves
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.11.2
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+GUIDES
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of nerves</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/nerves-project/nerves/blob/v1.11.2/guides/introduction/getting-started.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>Getting Started</span>
+  </h1>
+
+<h2 id="introduction" class="section-heading">
+  <a href="#introduction" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Introduction</span>
+</h2>
+<p>Nerves defines a new way to build embedded systems using
+<a href="https://elixir-lang.org/">Elixir</a>. It is
+specifically designed for embedded systems, not desktop or server systems.  You
+can think of Nerves as containing three parts:</p><ul><li><strong>Platform</strong> - a customized, minimal
+<a href="https://buildroot.org">Buildroot</a>-derived Linux that boots directly to the
+<a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">BEAM VM</a>.</li><li><strong>Framework</strong> - ready-to-go library of Elixir modules to get you up and
+running quickly.</li><li><strong>Tooling</strong> - powerful command-line tools to manage builds, update firmware,
+configure devices, and more.</li></ul><p>Taken together, the Nerves platform, framework, and tooling provide a highly
+specialized environment for using Elixir to build advanced embedded devices.</p><h2 id="common-terms" class="section-heading">
+  <a href="#common-terms" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Common terms</span>
+</h2>
+<p>In the following guides, support channels, and forums, you may hear the
+following terms being used.</p><table><thead><tr><th style="text-align: left;">Term</th><th style="text-align: left;">Definition</th></tr></thead><tbody><tr><td style="text-align: left;">host</td><td style="text-align: left;">The computer on which you are editing source code, compiling, and assembling firmware</td></tr><tr><td style="text-align: left;">target</td><td style="text-align: left;">The platform for which your firmware is built (for example, Raspberry Pi Zero W, Raspberry Pi 4, or Beaglebone Black)</td></tr><tr><td style="text-align: left;">toolchain</td><td style="text-align: left;">The tools required to build code for the target, such as compilers, linkers, binutils, and C runtime</td></tr><tr><td style="text-align: left;">system</td><td style="text-align: left;">A lean Buildroot-based Linux distribution that has been customized and cross-compiled for a particular target</td></tr><tr><td style="text-align: left;">firmware bundle</td><td style="text-align: left;">A single file that contains an assembled version of everything needed to burn firmware</td></tr><tr><td style="text-align: left;">firmware image</td><td style="text-align: left;">Built from a firmware bundle and contains the partition table, partitions, bootloader, etc.</td></tr></tbody></table><h2 id="development-environment" class="section-heading">
+  <a href="#development-environment" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Development environment</span>
+</h2>
+<p>Before you create your first Nerves project or explore Nerves with Livebook,
+you will need to make sure to <a href="installation.html">install some system
+packages</a> required by the Framework, Platform,
+and Tooling.</p><h2 id="nerves-livebook" class="section-heading">
+  <a href="#nerves-livebook" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Nerves + Livebook</span>
+</h2>
+<p>The best path to exploring Nerves for the first time is by setting up the
+<a href="https://github.com/nerves-livebook/nerves_livebook">Nerves Livebook project</a>.
+This allows you to try out the Nerves project on real hardware without needing
+to build a project from scratch.</p><p>Within minutes, you'll have a Raspberry Pi or Beaglebone running Nerves. You'll
+be able to run code in <a href="https://livebook.dev/">Livebook</a> and work through
+Nerves tutorials from the comfort of your browser.</p><p><a href="https://www.youtube.com/c/Underjord">Underjord</a> has put together a
+<a href="https://www.youtube.com/watch?v=-b5TPb_MwQE">fantastic video</a>
+to help walk-through the entire setup process.</p><h2 id="creating-a-project" class="section-heading">
+  <a href="#creating-a-project" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Creating a project</span>
+</h2>
+<p>Before you start using Nerves, it is important that you take a minute to read
+the <a href="installation.html">Installation Guide</a>.  It will help you get your machine
+configured for running Nerves.</p><p>Let's create a new project.  The <code class="inline">nerves.new</code> project generator can be called
+from anywhere and can take either an absolute path or a relative path.</p><pre><code class="makeup bash" translate="no"><span class="">mix nerves.new hello_nerves
+</span></code></pre><p>Nerves will generate the required files and directory structure for your
+application. If you chose not to fetch dependencies during project generation,
+you will need to do that yourself.</p><p>As described by the project generator, the next step is to change to the project
+directory, choose a target, and fetch the target-specific dependencies.</p><blockquote><h4 class="tip">What is my device's <em>MIX_TARGET</em>?</h4><p>Visit the <a href="supported-targets.html">Supported Targets Page</a> for information on what target name to
+use for each of the boards that Nerves supports. The default target is <code class="inline">host</code>
+unless you specify a different target in your environment.</p></blockquote><p>The target is chosen using a shell environment variable. You can use the
+<code class="inline">export</code> command, which will remain in effect as long as you leave your
+shell window open.</p><pre><code class="makeup bash" translate="no"><span class="">cd hello_nerves
+</span><span class="">export MIX_TARGET=rpi0
+</span><span class="">mix deps.get
+</span></code></pre><p>Alternatively, you can prefix each command with the environment variable.</p><pre><code class="makeup bash" translate="no"><span class="">cd hello_nerves
+</span><span class="">MIX_TARGET=rpi0 mix deps.get
+</span></code></pre><p>An often used approach is to have two shell windows open: one for running
+commands against the <code class="inline">host</code> target, and one with the desired <code class="inline">MIX_TARGET</code>
+variable set.</p><p>This allows you quick access to use host-based tooling in the former and
+deploy updated firmware from the latter, all without having to modify the
+<code class="inline">MIX_TARGET</code> variable in your shell.</p><h2 id="deploying-your-firmware" class="section-heading">
+  <a href="#deploying-your-firmware" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Deploying your firmware</span>
+</h2>
+<p>Once you have installed your project dependencies you can build a Nerves
+Firmware bundle. This bundle contains a minimal Linux platform and your
+application packaged as an OTP release.</p><p>The first time you compile your application or it's dependencies Nerves will
+fetch the System and Toolchain from one of our cache mirrors. These artifacts
+are cached locally in <code class="inline">~/.nerves/artifacts</code> so they can be shared across
+projects.</p><p>For remote deployment information, see &quot;How do I push firmware updates
+remotely?&quot; in the <a href="faq.html#how-do-i-push-firmware-updates-remotely">FAQ</a>.</p><blockquote><h4 class="tip">Deleting cached artifacts</h4><p>Running <code class="inline">rm -fr ~/.nerves</code> is a safe operation as any archives
+that you're using will be re-downloaded when you next run <a href="https://hexdocs.pm/mix/Mix.Tasks.Deps.Get.html"><code class="inline">mix deps.get</code></a>.</p></blockquote><h3 id="create-the-firmware-bundle" class="section-heading">
+  <a href="#create-the-firmware-bundle" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Create the firmware bundle</span>
+</h3>
+<p>You can create the firmware bundle with the following command:</p><pre><code class="makeup bash" translate="no"><span class="">mix firmware
+</span></code></pre><p>or</p><pre><code class="makeup bash" translate="no"><span class="">MIX_TARGET=rpi0 mix firmware
+</span></code></pre><p>This will result in a <code class="inline">hello_nerves.fw</code> firmware bundle file.</p><h3 id="create-a-bootable-sd-card" class="section-heading">
+  <a href="#create-a-bootable-sd-card" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Create a bootable SD card</span>
+</h3>
+<p>To create a bootable SD card, use the following command:</p><pre><code class="makeup bash" translate="no"><span class="">mix firmware.burn
+</span></code></pre><p>or</p><pre><code class="makeup bash" translate="no"><span class="">MIX_TARGET=rpi0 mix firmware.burn
+</span></code></pre><p>This command will attempt to automatically discover the SD card inserted in your
+host.</p><blockquote><h4 class="tip">More than one SD cards or disk images?</h4><p><a href="Mix.Tasks.Firmware.Burn.html"><code class="inline">mix firmware.burn</code></a> may fail to correctly detect your SD card if you have
+more than one SD card inserted or you have disk images mounted.</p><p>If this happens, you can specify the intended device by passing the
+<code class="inline">-d &lt;device&gt;</code> argument to the command. For example
+<code class="inline">mix firmware.burn -d /dev/rdisk3</code></p><p>You can alse use <code class="inline">-d &lt;filename&gt;</code> to specify an output file that is a raw
+image of the SD card. This binary image can be burned to an SD card using
+<a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a>, <a href="https://www.balena.io/etcher/">Etcher</a>, <code class="inline">dd</code>, <code class="inline">Win32DiskImager</code>, or other image copying utilities.</p></blockquote><p>For more options, refer to the <a href="Mix.Tasks.Firmware.Burn.html"><code class="inline">mix firmware.burn</code></a> documentation.</p><p>Now that you have your SD card burned, you can insert it into your device and
+boot it up.</p><h2 id="connecting-to-your-device" class="section-heading">
+  <a href="#connecting-to-your-device" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Connecting to your device</span>
+</h2>
+<p>There are multiple ways to connect to your Nerves target device, and different
+targets may support different connection methods:</p><ul><li>USB to TTL serial cable (aka FTDI cable)</li><li>HDMI cable</li><li>USB data cable</li><li>Ethernet</li><li>WiFi</li></ul><p>When connecting to your target device using a USB to TTL serial cable or an
+HDMI cable, and before booting up your device, you may see device messages
+related to the booting process in the IEx console.</p><p>For more info, refer to <a href="connecting-to-a-nerves-target.html">Connecting to your Nerves Target</a>.</p><blockquote><h4 class="tip">What features does Nerves support for my device?</h4><p>Refer to the documentation of <code class="inline">nerves_system_&lt;target&gt;</code> projects for their
+supported features. As an example, when your target is <code class="inline">rpi0</code>,
+visit <a href="https://hexdocs.pm/nerves_system_rpi0">https://hexdocs.pm/nerves_system_rpi0</a>.</p></blockquote><h2 id="using-iex" class="section-heading">
+  <a href="#using-iex" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Using <a href="https://hexdocs.pm/iex/IEx.html"><code class="inline">IEx</code></a></span>
+</h2>
+<p>Once you are connected to your target device, an <a href="https://hexdocs.pm/iex/IEx.html"><code class="inline">IEx</code></a> prompt will appear with
+<a href="https://hexdocs.pm/nerves_motd/readme.html"><code class="inline">NervesMOTD</code></a>.
+<a href="https://hexdocs.pm/iex/IEx.html"><code class="inline">IEx</code></a> is your main entry point to interacting with Elixir, your program, and hardware.</p><pre><code class="makeup bash" translate="no"><span class="">ssh nerves.local
+</span><span class="">
+</span><span class="">Interactive Elixir (1.13.4) - press Ctrl+C to exit (type h() ENTER for help)
+</span><span class="">████▄▄    ▐███
+</span><span class="">█▌  ▀▀██▄▄  ▐█
+</span><span class="">█▌  ▄▄  ▀▀  ▐█   N  E  R  V  E  S
+</span><span class="">█▌  ▀▀██▄▄  ▐█
+</span><span class="">███▌    ▀▀████
+</span><span class="">hello_nerves 0.2.0 (40705268-3e85-52b6-7c7a-05ffd33a31b8) arm rpi0
+</span><span class="">  Uptime       : 1 days, 3 hours, 6 minutes and 29 seconds
+</span><span class="">  Clock        : 2022-08-11 21:44:09 EDT
+</span><span class="">
+</span><span class="">  Firmware     : Valid (B)               Applications : 57 started
+</span><span class="">  Memory usage : 87 MB (28%)             Part usage   : 2 MB (0%)
+</span><span class="">  Hostname     : nerves-mn02             Load average : 0.15 0.12 0.14
+</span><span class="">
+</span><span class="">  wlan0        : 10.0.0.25/24, 2601:14d:8602:2a0:ba27:ebff:fecb:222a/64, fe80::ba27:ebff:fecb:222a/64
+</span><span class="">  usb0         : 172.31.36.97/30, fe80::3c43:59ff:fec9:6716/64
+</span><span class="">
+</span><span class="">Nerves CLI help: https://hexdocs.pm/nerves/iex-with-nerves.html
+</span><span class="">
+</span><span class="">Toolshed imported. Run h(Toolshed) for more info.
+</span><span class="">iex(nerves@nerves.local)1&gt;
+</span></code></pre><p>The <a href="https://hexdocs.pm/toolshed/Toolshed.html">Toolshed</a> package contains
+many useful commands. Enter the following command to display the help for the
+<a href="https://hexdocs.pm/toolshed/Toolshed.html">Toolshed</a> package.</p><pre><code class="makeup elixir" translate="no"><span class="n">h</span><span class="w"> </span><span class="nc">Toolshed</span></code></pre><p>Go ahead and try them out to explore your target's runtime environment.</p><p>For more info on Nerves-specific use of the IEx prompt, refer to
+<a href="https://hexdocs.pm/nerves/iex-with-nerves.html">IEx with Nerves Page</a>.</p><h2 id="example-projects" class="section-heading">
+  <a href="#example-projects" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example projects</span>
+</h2>
+<p>If you are interested in exploring other Nerve codebases and projects, you can
+check out our <a href="https://github.com/nerves-project/nerves_examples">collection of example projects</a>.</p><p>Be sure to set your <code class="inline">MIX_TARGET</code> environment variable appropriately for the
+target hardware you have. Visit the <a href="supported-targets.html">Supported Targets Page</a> for more
+information on what target name to use for the boards that Nerves supports.</p><p>The <code class="inline">nerves_examples</code> repository contains several example projects to get you
+started.  The simplest example is Blinky, known as the &quot;Hello World&quot; of hardware
+because all it does is blink an LED indefinitely.  If you are ever curious about
+project structuring or can't get something running, check out Blinky and run it
+on your target to confirm that it works in the simplest case.</p><pre><code class="makeup bash" translate="no"><span class="">git clone https://github.com/nerves-project/nerves_examples
+</span><span class="">export MIX_TARGET=rpi0
+</span><span class="">cd nerves_examples/blinky
+</span><span class="">mix do deps.get, firmware, firmware.burn
+</span></code></pre><h2 id="community-links" class="section-heading">
+  <a href="#community-links" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Community links</span>
+</h2>
+<ul><li><a href="https://discord.gg/elixir">Elixir Discord #nerves channel</a></li><li><a href="https://elixirforum.com/c/elixir-framework-forums/nerves-forum/74">Nerves Forum</a></li><li><a href="https://www.meetup.com/nerves">Nerves Meetup</a></li><li><a href="https://underjord.io/nerves-newsletter.html">Nerves Newsletter</a></li></ul>
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="changelog.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Changelog
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="installation.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Installation
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/nerves/1.11.2" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/nerves/1.11.2">Hex Preview</a>
+
+              (<a href="https://preview.hex.pm/preview/nerves/1.11.2/show/guides/introduction/getting-started.md">current file</a>)
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="nerves.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
