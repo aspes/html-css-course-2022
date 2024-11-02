@@ -1,3 +1,5 @@
+Example1
+
 Enter your wage:<input type="text" id="wage" value ="" size=20>
         <button id="sub">Submit</button>
 
@@ -13,3 +15,29 @@ function validate(e) {
     alert('Validated');
 }
 </script>
+
+
+Example2:
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onkeydown Event</h2>
+
+<p>Press and hold down a key inside the text field to set a red background color. Release the key to set a green background color.</p>
+
+<input type="text" id="demo" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+
+<script>
+function keydownFunction() {
+  document.getElementById("demo").style.backgroundColor = "red";
+}
+
+function keyupFunction() {
+  document.getElementById("demo").style.backgroundColor = "green";
+}
+</script>
+
+</body>
+</html>
