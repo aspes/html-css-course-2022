@@ -1,0 +1,15 @@
+Enter your wage:<input type="text" id="wage" value ="" size=20>
+        <button id="sub">Submit</button>
+
+<script>
+var wage = document.getElementById("wage");
+wage.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+        validate(e);
+    }
+});
+
+function validate(e) {
+    alert('Validated');
+}
+</script>
