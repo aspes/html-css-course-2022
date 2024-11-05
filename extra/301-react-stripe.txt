@@ -2,6 +2,10 @@ https://www.npmjs.com/package/@stripe/react-stripe-js
 
 https://dev.to/mominmahmud/implementing-stripe-payments-in-a-react-app-a-step-by-step-guide-4dd9
 
+https://medium.com/@shaikhrezwan66/implementing-payment-system-in-your-react-app-using-stripe-7e0e3f984532
+
+https://www.geeksforgeeks.org/how-to-integrate-stripe-payments-in-react-app-using-express/
+
 https://www.freecodecamp.org/news/react-stripe-payments/
 
 https://dev.to/codeparrot/setting-up-stripe-payments-in-react-3bbn
@@ -17,3 +21,14 @@ https://medium.com/@skandaaryal/mastering-stripe-integration-with-react-a-step-b
 https://docs.stripe.com/
 
 https://docs.stripe.com/no-code/get-started
+
+https://judy-webdecoded.medium.com/how-i-integrated-stripe-payments-in-react-app-db24cd5c200b
+
+https://docs.stripe.com/sdks/stripejs-react
+
+https://www.youtube.com/watch?v=3OOHC_UzrKA&t=156s
+
+https://www.educative.io/answers/how-to-integrate-stripe-with-react
+
+
+
