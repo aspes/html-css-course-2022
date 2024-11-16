@@ -1,4 +1,4 @@
-Having assembled a team of top-notch AI and CPU engineers, start-up Tenstorrent, helmed by industry icon Jim Keller, has huge plans that involve both general-purpose processors and artificial intelligence accelerators.
+Having assembled a team of top-notch AI and CPU engineers, start-up Tenstorrent, helmed by industry icon Jim Keller, has huge plans that involve both general-purpose processors and artificial intelligence accelerators. 정선만항재길.
 
 At present, the company is working on the industry's first 8-wide decoding RISC-V core capable of addressing both client and HPC workloads that will be first used for a 128-core high-performance CPU aimed at data centers. The company also has a roadmap of several more generations of processors, which we'll cover below. 
 
