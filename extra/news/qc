@@ -1,0 +1,4 @@
+Topological quantum computing aims to stabilize qubits by utilizing Majorana particles, which are their own antiparticles. 
+These particles enable the creation of topological qubits that are inherently more stable and resistant to errors. 
+Microsoft's recent development of the Majorana 1 chip leverages this approach, using a novel material called a "topoconductor" 
+to produce reliable qubits through the manipulation of Majorana particles.
